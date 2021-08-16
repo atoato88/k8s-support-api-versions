@@ -1,0 +1,383 @@
+{
+  "clusterVersion": "1.22",
+  "apiVersions": [
+    {
+      "groupVersion": "apiregistration.k8s.io/v1",
+      "kind": "APIService",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "Binding",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "storage.k8s.io/v1",
+      "kind": "CSIDriver",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "storage.k8s.io/v1",
+      "kind": "CSINode",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "storage.k8s.io/v1beta1",
+      "kind": "CSIStorageCapacity",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "certificates.k8s.io/v1",
+      "kind": "CertificateSigningRequest",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "rbac.authorization.k8s.io/v1",
+      "kind": "ClusterRole",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "rbac.authorization.k8s.io/v1",
+      "kind": "ClusterRoleBinding",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "ComponentStatus",
+      "deprecated": true,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "ConfigMap",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "apps/v1",
+      "kind": "ControllerRevision",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "batch/v1",
+      "kind": "CronJob",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "batch/v1beta1",
+      "kind": "CronJob",
+      "deprecated": true,
+      "removedOn": "1.25"
+    },
+    {
+      "groupVersion": "apiextensions.k8s.io/v1",
+      "kind": "CustomResourceDefinition",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "apps/v1",
+      "kind": "DaemonSet",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "apps/v1",
+      "kind": "Deployment",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "discovery.k8s.io/v1",
+      "kind": "EndpointSlice",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "discovery.k8s.io/v1beta1",
+      "kind": "EndpointSlice",
+      "deprecated": true,
+      "removedOn": "1.25"
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "Endpoints",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "Event",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "events.k8s.io/v1",
+      "kind": "Event",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "events.k8s.io/v1beta1",
+      "kind": "Event",
+      "deprecated": true,
+      "removedOn": "1.25"
+    },
+    {
+      "groupVersion": "flowcontrol.apiserver.k8s.io/v1beta1",
+      "kind": "FlowSchema",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "autoscaling/v2beta2",
+      "kind": "HorizontalPodAutoscaler",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "autoscaling/v2beta1",
+      "kind": "HorizontalPodAutoscaler",
+      "deprecated": true,
+      "removedOn": "1.25"
+    },
+    {
+      "groupVersion": "autoscaling/v1",
+      "kind": "HorizontalPodAutoscaler",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "networking.k8s.io/v1",
+      "kind": "Ingress",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "networking.k8s.io/v1",
+      "kind": "IngressClass",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "batch/v1",
+      "kind": "Job",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "coordination.k8s.io/v1",
+      "kind": "Lease",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "LimitRange",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "authorization.k8s.io/v1",
+      "kind": "LocalSubjectAccessReview",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "admissionregistration.k8s.io/v1",
+      "kind": "MutatingWebhookConfiguration",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "Namespace",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "networking.k8s.io/v1",
+      "kind": "NetworkPolicy",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "Node",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "PersistentVolume",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "Pod",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "policy/v1",
+      "kind": "PodDisruptionBudget",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "policy/v1beta1",
+      "kind": "PodDisruptionBudget",
+      "deprecated": true,
+      "removedOn": "1.25"
+    },
+    {
+      "groupVersion": "policy/v1beta1",
+      "kind": "PodSecurityPolicy",
+      "deprecated": true,
+      "removedOn": "1.25"
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "PodTemplate",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "scheduling.k8s.io/v1",
+      "kind": "PriorityClass",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "flowcontrol.apiserver.k8s.io/v1beta1",
+      "kind": "PriorityLevelConfiguration",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "apps/v1",
+      "kind": "ReplicaSet",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "ReplicationController",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "ResourceQuota",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "rbac.authorization.k8s.io/v1",
+      "kind": "Role",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "rbac.authorization.k8s.io/v1",
+      "kind": "RoleBinding",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "node.k8s.io/v1beta1",
+      "kind": "RuntimeClass",
+      "deprecated": true,
+      "removedOn": "1.25"
+    },
+    {
+      "groupVersion": "node.k8s.io/v1",
+      "kind": "RuntimeClass",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "Secret",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "authorization.k8s.io/v1",
+      "kind": "SelfSubjectAccessReview",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "authorization.k8s.io/v1",
+      "kind": "SelfSubjectRulesReview",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "Service",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "v1",
+      "kind": "ServiceAccount",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "apps/v1",
+      "kind": "StatefulSet",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "storage.k8s.io/v1",
+      "kind": "StorageClass",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "authorization.k8s.io/v1",
+      "kind": "SubjectAccessReview",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "authentication.k8s.io/v1",
+      "kind": "TokenReview",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "admissionregistration.k8s.io/v1",
+      "kind": "ValidatingWebhookConfiguration",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "storage.k8s.io/v1",
+      "kind": "VolumeAttachment",
+      "deprecated": false,
+      "removedOn": ""
+    }
+  ]
+}
