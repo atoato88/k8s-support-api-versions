@@ -1,6 +1,12 @@
 {
-  "clusterVersion": "v1.22.0",
+  "clusterVersion": "v1.21.1",
   "apiVersions": [
+    {
+      "groupVersion": "apiregistration.k8s.io/v1beta1",
+      "kind": "APIService",
+      "deprecated": false,
+      "removedOn": ""
+    },
     {
       "groupVersion": "apiregistration.k8s.io/v1",
       "kind": "APIService",
@@ -14,10 +20,22 @@
       "removedOn": ""
     },
     {
+      "groupVersion": "storage.k8s.io/v1beta1",
+      "kind": "CSIDriver",
+      "deprecated": true,
+      "removedOn": "1.22"
+    },
+    {
       "groupVersion": "storage.k8s.io/v1",
       "kind": "CSIDriver",
       "deprecated": false,
       "removedOn": ""
+    },
+    {
+      "groupVersion": "storage.k8s.io/v1beta1",
+      "kind": "CSINode",
+      "deprecated": true,
+      "removedOn": "1.22"
     },
     {
       "groupVersion": "storage.k8s.io/v1",
@@ -38,10 +56,28 @@
       "removedOn": ""
     },
     {
+      "groupVersion": "certificates.k8s.io/v1beta1",
+      "kind": "CertificateSigningRequest",
+      "deprecated": true,
+      "removedOn": "1.22"
+    },
+    {
+      "groupVersion": "rbac.authorization.k8s.io/v1beta1",
+      "kind": "ClusterRole",
+      "deprecated": true,
+      "removedOn": "1.22"
+    },
+    {
       "groupVersion": "rbac.authorization.k8s.io/v1",
       "kind": "ClusterRole",
       "deprecated": false,
       "removedOn": ""
+    },
+    {
+      "groupVersion": "rbac.authorization.k8s.io/v1beta1",
+      "kind": "ClusterRoleBinding",
+      "deprecated": true,
+      "removedOn": "1.22"
     },
     {
       "groupVersion": "rbac.authorization.k8s.io/v1",
@@ -68,19 +104,25 @@
       "removedOn": ""
     },
     {
-      "groupVersion": "batch/v1",
-      "kind": "CronJob",
-      "deprecated": false,
-      "removedOn": ""
-    },
-    {
       "groupVersion": "batch/v1beta1",
       "kind": "CronJob",
       "deprecated": true,
       "removedOn": "1.25"
     },
     {
+      "groupVersion": "batch/v1",
+      "kind": "CronJob",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
       "groupVersion": "apiextensions.k8s.io/v1",
+      "kind": "CustomResourceDefinition",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "apiextensions.k8s.io/v1beta1",
       "kind": "CustomResourceDefinition",
       "deprecated": false,
       "removedOn": ""
@@ -130,12 +172,18 @@
     {
       "groupVersion": "events.k8s.io/v1beta1",
       "kind": "Event",
-      "deprecated": true,
-      "removedOn": "1.25"
+      "deprecated": false,
+      "removedOn": ""
     },
     {
       "groupVersion": "flowcontrol.apiserver.k8s.io/v1beta1",
       "kind": "FlowSchema",
+      "deprecated": false,
+      "removedOn": ""
+    },
+    {
+      "groupVersion": "autoscaling/v2beta1",
+      "kind": "HorizontalPodAutoscaler",
       "deprecated": false,
       "removedOn": ""
     },
@@ -146,16 +194,16 @@
       "removedOn": ""
     },
     {
-      "groupVersion": "autoscaling/v2beta1",
-      "kind": "HorizontalPodAutoscaler",
-      "deprecated": true,
-      "removedOn": "1.25"
-    },
-    {
       "groupVersion": "autoscaling/v1",
       "kind": "HorizontalPodAutoscaler",
       "deprecated": false,
       "removedOn": ""
+    },
+    {
+      "groupVersion": "networking.k8s.io/v1beta1",
+      "kind": "Ingress",
+      "deprecated": true,
+      "removedOn": "1.22"
     },
     {
       "groupVersion": "networking.k8s.io/v1",
@@ -164,10 +212,22 @@
       "removedOn": ""
     },
     {
+      "groupVersion": "extensions/v1beta1",
+      "kind": "Ingress",
+      "deprecated": true,
+      "removedOn": "1.22"
+    },
+    {
       "groupVersion": "networking.k8s.io/v1",
       "kind": "IngressClass",
       "deprecated": false,
       "removedOn": ""
+    },
+    {
+      "groupVersion": "networking.k8s.io/v1beta1",
+      "kind": "IngressClass",
+      "deprecated": true,
+      "removedOn": "1.22"
     },
     {
       "groupVersion": "batch/v1",
@@ -182,6 +242,12 @@
       "removedOn": ""
     },
     {
+      "groupVersion": "coordination.k8s.io/v1beta1",
+      "kind": "Lease",
+      "deprecated": true,
+      "removedOn": "1.22"
+    },
+    {
       "groupVersion": "v1",
       "kind": "LimitRange",
       "deprecated": false,
@@ -192,6 +258,18 @@
       "kind": "LocalSubjectAccessReview",
       "deprecated": false,
       "removedOn": ""
+    },
+    {
+      "groupVersion": "authorization.k8s.io/v1beta1",
+      "kind": "LocalSubjectAccessReview",
+      "deprecated": true,
+      "removedOn": "1.22"
+    },
+    {
+      "groupVersion": "admissionregistration.k8s.io/v1beta1",
+      "kind": "MutatingWebhookConfiguration",
+      "deprecated": true,
+      "removedOn": "1.22"
     },
     {
       "groupVersion": "admissionregistration.k8s.io/v1",
@@ -266,6 +344,12 @@
       "removedOn": ""
     },
     {
+      "groupVersion": "scheduling.k8s.io/v1beta1",
+      "kind": "PriorityClass",
+      "deprecated": true,
+      "removedOn": "1.22"
+    },
+    {
       "groupVersion": "flowcontrol.apiserver.k8s.io/v1beta1",
       "kind": "PriorityLevelConfiguration",
       "deprecated": false,
@@ -290,6 +374,12 @@
       "removedOn": ""
     },
     {
+      "groupVersion": "rbac.authorization.k8s.io/v1beta1",
+      "kind": "Role",
+      "deprecated": true,
+      "removedOn": "1.22"
+    },
+    {
       "groupVersion": "rbac.authorization.k8s.io/v1",
       "kind": "Role",
       "deprecated": false,
@@ -302,10 +392,16 @@
       "removedOn": ""
     },
     {
+      "groupVersion": "rbac.authorization.k8s.io/v1beta1",
+      "kind": "RoleBinding",
+      "deprecated": true,
+      "removedOn": "1.22"
+    },
+    {
       "groupVersion": "node.k8s.io/v1beta1",
       "kind": "RuntimeClass",
-      "deprecated": true,
-      "removedOn": "1.25"
+      "deprecated": false,
+      "removedOn": ""
     },
     {
       "groupVersion": "node.k8s.io/v1",
@@ -320,6 +416,12 @@
       "removedOn": ""
     },
     {
+      "groupVersion": "authorization.k8s.io/v1beta1",
+      "kind": "SelfSubjectAccessReview",
+      "deprecated": true,
+      "removedOn": "1.22"
+    },
+    {
       "groupVersion": "authorization.k8s.io/v1",
       "kind": "SelfSubjectAccessReview",
       "deprecated": false,
@@ -330,6 +432,12 @@
       "kind": "SelfSubjectRulesReview",
       "deprecated": false,
       "removedOn": ""
+    },
+    {
+      "groupVersion": "authorization.k8s.io/v1beta1",
+      "kind": "SelfSubjectRulesReview",
+      "deprecated": true,
+      "removedOn": "1.22"
     },
     {
       "groupVersion": "v1",
@@ -356,10 +464,22 @@
       "removedOn": ""
     },
     {
+      "groupVersion": "storage.k8s.io/v1beta1",
+      "kind": "StorageClass",
+      "deprecated": true,
+      "removedOn": "1.22"
+    },
+    {
       "groupVersion": "authorization.k8s.io/v1",
       "kind": "SubjectAccessReview",
       "deprecated": false,
       "removedOn": ""
+    },
+    {
+      "groupVersion": "authorization.k8s.io/v1beta1",
+      "kind": "SubjectAccessReview",
+      "deprecated": true,
+      "removedOn": "1.22"
     },
     {
       "groupVersion": "authentication.k8s.io/v1",
@@ -368,10 +488,28 @@
       "removedOn": ""
     },
     {
+      "groupVersion": "authentication.k8s.io/v1beta1",
+      "kind": "TokenReview",
+      "deprecated": true,
+      "removedOn": "1.22"
+    },
+    {
+      "groupVersion": "admissionregistration.k8s.io/v1beta1",
+      "kind": "ValidatingWebhookConfiguration",
+      "deprecated": true,
+      "removedOn": "1.22"
+    },
+    {
       "groupVersion": "admissionregistration.k8s.io/v1",
       "kind": "ValidatingWebhookConfiguration",
       "deprecated": false,
       "removedOn": ""
+    },
+    {
+      "groupVersion": "storage.k8s.io/v1beta1",
+      "kind": "VolumeAttachment",
+      "deprecated": true,
+      "removedOn": "1.22"
     },
     {
       "groupVersion": "storage.k8s.io/v1",

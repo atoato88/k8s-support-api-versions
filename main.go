@@ -25,16 +25,17 @@ import (
 	"strconv"
 	"strings"
 
+	//"github.com/k0kubun/pretty"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"k8s.io/apimachinery/pkg/util/errors"
+	"k8s.io/apimachinery/pkg/version"
 	"k8s.io/apiserver/pkg/endpoints/deprecation"
 	"k8s.io/client-go/kubernetes"
 	clientgoscheme "k8s.io/client-go/kubernetes/scheme"
 	"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/client-go/util/homedir"
-	//"github.com/k0kubun/pretty"
 )
 
 func main() {
@@ -56,10 +57,8 @@ func main() {
 	}
 
 	serverInfo, err := clientset.ServerVersion()
-	major, err := strconv.Atoi(serverInfo.Major)
-	minor, err := strconv.Atoi(serverInfo.Minor)
 
-	err = DisplayAPIVersions(clientset, major, minor)
+	err = ShowAPIVersions(clientset, serverInfo)
 	if err != nil {
 		panic(err)
 	}
@@ -86,14 +85,13 @@ type output struct {
 	APIVersions    []versionInfo `json:"apiVersions"`
 }
 
-func DisplayAPIVersions(clientset *kubernetes.Clientset, major, minor int) error {
+func ShowAPIVersions(clientset *kubernetes.Clientset, serverInfo *version.Info) error {
 	//w := printers.GetNewTabWriter(o.Out)
 	//defer w.Flush()
 
-	discoveryclient := clientset
 	var err error
-
 	errs := []error{}
+	discoveryclient := clientset
 	//lists, err := discoveryclient.ServerPreferredResources()
 	lists, err := discoveryclient.Discovery().ServerResources()
 	if err != nil {
@@ -111,6 +109,9 @@ func DisplayAPIVersions(clientset *kubernetes.Clientset, major, minor int) error
 
 	resources := []groupResource{}
 	versions := []versionInfo{}
+
+	major, err := strconv.Atoi(serverInfo.Major)
+	minor, err := strconv.Atoi(serverInfo.Minor)
 
 	for _, list := range lists {
 		if len(list.APIResources) == 0 {
@@ -169,7 +170,7 @@ func DisplayAPIVersions(clientset *kubernetes.Clientset, major, minor int) error
 
 	sort.Slice(versions, func(i, j int) bool { return versions[i].Kind < versions[j].Kind })
 	o := output{
-		ClusterVersion: string(strconv.Itoa(major) + "." + strconv.Itoa(minor)),
+		ClusterVersion: serverInfo.GitVersion,
 		APIVersions:    versions,
 	}
 	j, err := json.Marshal(o)
