@@ -40,11 +40,14 @@ import (
 
 func main() {
 	var kubeconfig *string
+	//var major, minor *string
 	if home := homedir.HomeDir(); home != "" {
 		kubeconfig = flag.String("kubeconfig", filepath.Join(home, ".kube", "config"), "(optional) absolute path to the kubeconfig file")
 	} else {
 		kubeconfig = flag.String("kubeconfig", "", "absolute path to the kubeconfig file")
 	}
+	//major = flag.String("major", "", "major version for Kubernetes")
+	//minor = flag.String("minor", "", "minor version for Kubernetes")
 	flag.Parse()
 
 	config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
@@ -57,6 +60,11 @@ func main() {
 	}
 
 	serverInfo, err := clientset.ServerVersion()
+	//if *major != "" && *minor != "" {
+	//	serverInfo.Major = *major
+	//	serverInfo.Minor = *minor
+	//	serverInfo.GitVersion = ""
+	//}
 
 	err = ShowAPIVersions(clientset, serverInfo)
 	if err != nil {
@@ -85,6 +93,14 @@ type output struct {
 	APIVersions    []versionInfo `json:"apiVersions"`
 }
 
+func getVersion(serverInfo *version.Info) string {
+	if serverInfo.GitVersion == "" {
+		return fmt.Sprintf("v%s.%s", serverInfo.Major, serverInfo.Minor)
+	} else {
+		return serverInfo.GitVersion
+	}
+}
+
 func ShowAPIVersions(clientset *kubernetes.Clientset, serverInfo *version.Info) error {
 	//w := printers.GetNewTabWriter(o.Out)
 	//defer w.Flush()
@@ -92,14 +108,10 @@ func ShowAPIVersions(clientset *kubernetes.Clientset, serverInfo *version.Info) 
 	var err error
 	errs := []error{}
 	discoveryclient := clientset
-	//lists, err := discoveryclient.ServerPreferredResources()
 	lists, err := discoveryclient.Discovery().ServerResources()
 	if err != nil {
 		errs = append(errs, err)
 	}
-
-	//e, err := json.Marshal(lists)
-	//pretty.Print(lists)
 
 	scheme := runtime.NewScheme()
 	_ = clientgoscheme.AddToScheme(scheme)
@@ -130,13 +142,10 @@ func ShowAPIVersions(clientset *kubernetes.Clientset, serverInfo *version.Info) 
 				continue
 			}
 			gvk := gv.WithKind(resource.Kind)
-			//fmt.Println(gvk)
 
 			obj, err = scheme.New(gvk)
-			//fmt.Println(deprecation.WarningMessage(obj))
 			isDeprecated = deprecation.IsDeprecated(obj, major, minor)
 			if isDeprecated {
-				//s, s2 := obj.GetObjectKind().GroupVersionKind().ToAPIVersionAndKind()
 				r := deprecation.RemovedRelease(obj)
 				if r != "" {
 					//fmt.Println(gvk.Kind + " " + gvk.GroupVersion().String() + " is deprecated and removed on " + r)
@@ -150,9 +159,7 @@ func ShowAPIVersions(clientset *kubernetes.Clientset, serverInfo *version.Info) 
 					RemovedOn:    r,
 				})
 
-				//fmt.Println(deprecation.WarningMessage(obj))
 			} else {
-				//fmt.Println(gvk.Kind + " " + gvk.GroupVersion().String())
 				versions = append(versions, versionInfo{
 					GroupVersion: gvk.GroupVersion().String(),
 					Kind:         gvk.Kind,
@@ -170,7 +177,7 @@ func ShowAPIVersions(clientset *kubernetes.Clientset, serverInfo *version.Info) 
 
 	sort.Slice(versions, func(i, j int) bool { return versions[i].Kind < versions[j].Kind })
 	o := output{
-		ClusterVersion: serverInfo.GitVersion,
+		ClusterVersion: getVersion(serverInfo),
 		APIVersions:    versions,
 	}
 	j, err := json.Marshal(o)
